@@ -13,6 +13,11 @@ export const ContactsItem = styled.li`
   align-items: center;
   padding: 10px;
   border: 1px solid #fff;
+  background: linear-gradient(
+    90deg,
+    rgba(58, 161, 180, 0.8491771708683473) 0%,
+    rgba(252, 69, 186, 0.5298494397759104) 100%
+  );
 `;
 export const ContactsName = styled.p`
   font-size: 18px;
@@ -39,4 +44,9 @@ export const ContactsItemButton = styled.button`
   border-radius: 50px;
   margin-left: 20px;
   box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.75);
+  background: radial-gradient(
+    circle,
+    rgba(63, 196, 251, 0.7679446778711485) 0%,
+    rgba(252, 70, 202, 0.4906337535014006) 100%
+  );
 `;

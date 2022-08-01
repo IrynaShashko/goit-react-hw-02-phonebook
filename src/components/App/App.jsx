@@ -15,16 +15,34 @@ class App extends Component {
       contacts: [...this.state.contacts, data],
     });
   };
+  deleteContact = id => {
+    console.log(id, 'cliiik');
+    this.setState({
+      contacts: this.state.contacts.filter(contact => contact.id !== id),
+    });
+  };
+  handleChange = e => {
+    this.setState({
+      filter: e.currentTarget.value,
+    });
+  };
 
   render() {
+    const normalizedContacts = this.state.filter.toLowerCase();
+    const visibleContacts = this.state.contacts.filter(contact =>
+      contact.name.toLowerCase().includes(normalizedContacts)
+    );
     return (
       <AppContainer>
         <PhonebookContainer>
           <H1>Phonebook</H1>
           <ContactsForm onSubmit={this.formSumbit} />
           <H2>Contacts</H2>
-          <Filter />
-          <Contacts contacts={this.state.contacts} />
+          <Filter filter={this.state.filter} handleChange={this.handleChange} />
+          <Contacts
+            contacts={visibleContacts}
+            deleteContact={this.deleteContact}
+          />
         </PhonebookContainer>
       </AppContainer>
     );

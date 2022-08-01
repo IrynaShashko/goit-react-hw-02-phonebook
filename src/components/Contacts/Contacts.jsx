@@ -1,6 +1,6 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
-import { BiHeartCircle } from 'react-icons/bi';
+import { FiHeart } from 'react-icons/fi';
 import {
   ContactsList,
   ContactsItem,
@@ -9,7 +9,7 @@ import {
   ContactsNumber,
 } from '../Contacts/Contacts.styled';
 
-const Contacts = ({ contacts }) => {
+const Contacts = ({ contacts, deleteContact }) => {
   return (
     <ContactsList>
       {contacts.map(contact => {
@@ -17,10 +17,15 @@ const Contacts = ({ contacts }) => {
         // console.log(contact.name, contact.id);
         return (
           <ContactsItem key={contact.id}>
-            <BiHeartCircle />
+            <FiHeart />
             <ContactsName>{contact.name}:</ContactsName>
             <ContactsNumber>{contact.number}</ContactsNumber>
-            <ContactsItemButton type="button">x</ContactsItemButton>
+            <ContactsItemButton
+              type="submit"
+              onClick={() => deleteContact(contact.id)}
+            >
+              X
+            </ContactsItemButton>
           </ContactsItem>
         );
       })}
