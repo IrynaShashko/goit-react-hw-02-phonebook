@@ -13,6 +13,7 @@ export const ContactsItem = styled.li`
   align-items: center;
   padding: 10px;
   border: 1px solid #fff;
+  border-radius: 50px;
   background: linear-gradient(
     90deg,
     rgba(58, 161, 180, 0.8491771708683473) 0%,

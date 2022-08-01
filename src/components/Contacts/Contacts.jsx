@@ -1,6 +1,7 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
 import { FiHeart } from 'react-icons/fi';
+import propTypes from 'prop-types';
 import {
   ContactsList,
   ContactsItem,
@@ -14,7 +15,6 @@ const Contacts = ({ contacts, deleteContact }) => {
     <ContactsList>
       {contacts.map(contact => {
         contact.id = nanoid();
-        // console.log(contact.name, contact.id);
         return (
           <ContactsItem key={contact.id}>
             <FiHeart />
@@ -31,6 +31,11 @@ const Contacts = ({ contacts, deleteContact }) => {
       })}
     </ContactsList>
   );
+};
+
+Contacts.propTypes = {
+  contacts: propTypes.array.isRequired,
+  deleteContact: propTypes.func.isRequired,
 };
 
 export default Contacts;
